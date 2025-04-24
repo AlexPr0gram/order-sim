@@ -21,7 +21,7 @@ function BaseTable(props) {
     const headers = useHeader(activeTab)
     const rows = useMemo(() => {
         if (success) {
-            setSuccess(false)
+            // setSuccess(false)
             return data?.filter((item) => {
                 if (activeTab === 'new') {
                     return item.status === 1
