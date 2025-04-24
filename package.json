@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "concurrently \"cd server && python3 main.py\" \"vite\""
+    "start": "concurrently \"cd server && python main.py\" \"vite\""
   },
   "dependencies": {
     "@mantine/core": "^7.17.4",
