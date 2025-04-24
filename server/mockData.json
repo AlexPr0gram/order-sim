@@ -1,0 +1,58 @@
+[
+    {
+      "id": "6e0559c1-d02b-4f2a-aab0-462f93de6c8e",
+      "manager": {
+        "id": "3dabc6e9-12c5-4c62-bcdf-d3cf17ab0f90",
+        "name": "Мария Иванова",
+        "number": "89261234567"
+      },
+      "adresse": {
+        "loaction": "ул. Ленина, 10",
+        "caption": "г. Самара, ул. Ленина, д. 10, кв. 12"
+      },
+      "timeCreate": 1713951600000,
+      "status": 2
+    },
+    {
+      "id": "f16e5171-4ec1-4c91-962e-d22bd7f16716",
+      "manager": {
+        "id": "7f10b6f9-4c68-4c1e-a452-b2e08e215fb4",
+        "name": "Игорь Смирнов",
+        "number": "89101231231"
+      },
+      "adresse": {
+        "loaction": "пр. Мира, 20",
+        "caption": "г. Омск, проспект Мира, д. 20"
+      },
+      "timeCreate": 1713782400000,
+      "status": 1
+    },
+    {
+      "id": "c51d8414-df0a-4b07-b3d2-8129b6cb3b7a",
+      "manager": {
+        "id": "7b8b13e0-f4cb-437b-b070-cab5f22928e1",
+        "name": "Светлана Кузнецова",
+        "number": "89051112233"
+      },
+      "adresse": {
+        "loaction": "ул. Пушкина, 3",
+        "caption": "г. Казань, ул. Пушкина, д. 3"
+      },
+      "timeCreate": 1713970800000,
+      "status": 2
+    },
+    {
+      "id": "ca1ec6b6-31cf-42f7-8f8e-eecb929d8ee4",
+      "manager": {
+        "id": "7d3f0b94-d177-4c9b-9990-816ef4c4e78f",
+        "name": "Дмитрий Орлов",
+        "number": "89005556677"
+      },
+      "adresse": {
+        "loaction": "наб. реки Фонтанки, 25",
+        "caption": "СПб, наб. реки Фонтанки, д. 25"
+      },
+      "timeCreate": 1713944400000,
+      "status": 1
+    }
+  ]
