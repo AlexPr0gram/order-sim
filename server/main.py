@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, g
 from flask_cors import CORS
 import json
 import sqlite3
@@ -14,21 +14,30 @@ def get_db():
         g.db.row_factory = sqlite3.Row  # для работы с dict-подобным выводом
     return g.db
 
+def check_tables():
+    """Проверка таблиц в базе данных"""
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    print("Таблицы в базе данных:", tables)
+
 def init_db():
     """Инициализация базы данных, если её нет"""
     if not os.path.exists(DATABASE):
-        db = get_db()
-        with open('schema.sql', mode='r') as f:
-            db.executescript(f.read())
-        print("База данных инициализирована.")
+        print(f"Базы данных нет. Создаем новую... Путь: {DATABASE}")
+        try:
+            db = get_db()
+            with open('schema.sql', mode='r') as f:
+                print("Чтение schema.sql...")
+                db.executescript(f.read())
+            print("База данных инициализирована.")
+            check_tables()  # Проверим, создалась ли таблица
+        except Exception as e:
+            print(f"Ошибка при создании базы данных: {e}")
     else:
         print("База данных уже существует.")
 
-@app.before_first_request
-def initialize_db():
-    """Автоматически вызывается перед первым запросом"""
-    init_db()
-    
 @app.route('/hello')
 def hello():
     return jsonify({'message': 'Привет от Flask!'})
@@ -40,4 +49,5 @@ def getList():
         return json.load(file)
 
 if __name__ == '__main__':
+    init_db()
     app.run(port=5000)
