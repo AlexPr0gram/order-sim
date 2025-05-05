@@ -45,7 +45,7 @@ function BaseTable(props) {
         } else {
             return []
         }
-    }, [success, activeTab])
+    }, [success, activeTab, data])
 
       useEffect(() => {
         fetch('http://127.0.0.1:8000/api/orders/filter/', {
