@@ -7,7 +7,7 @@ import {
   } from '@mantine/core';
   import { useDisclosure } from '@mantine/hooks';
 import { useCallback, useEffect, useState, useMemo } from 'react';
-import { STATUS_TYPE } from '../constants';
+import { STATUS_TYPE, STATUS_CODE } from '../constants';
 import StatusCellTemplate from './StatusCellTemplate';
 import useHeader from '../hooks/useHeader';
 import { formatTimestamp } from '../utils/formatTimestamp';
@@ -35,7 +35,7 @@ function BaseTable(props) {
                 <Table.Tr key={row.id}>
                   <NameManagerCellTemplate item={row} />
                   <Table.Td>{row.adresse.caption}</Table.Td>
-                  <Table.Td>{formatTimestamp(row.timeCreate)}</Table.Td>
+                  <Table.Td>{formatTimestamp(row.time_create)}</Table.Td>
                   {
                     activeTab === 'all' &&
                     <StatusCellTemplate item={row} />
@@ -48,16 +48,13 @@ function BaseTable(props) {
     }, [success, activeTab])
 
       useEffect(() => {
-        fetch('/api/getList', {
+        fetch('http://127.0.0.1:8000/api/orders/filter/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                searchValue: search,
-                filter: {
-                    status: activeTab
-                }
+                    status: STATUS_CODE[activeTab]
              })
           })
             .then(res => res.json())

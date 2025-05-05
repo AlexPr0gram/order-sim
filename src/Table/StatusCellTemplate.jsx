@@ -3,7 +3,7 @@ import {
     Badge
   } from '@mantine/core';
 import { useMemo } from 'react';
-import { STATUS_TYPE } from '../constants';
+import { STATUS_TYPE, STATUS_CODE } from '../constants';
 function StatusCellTemplate(props) {
     const {item} = props;
     const colorBadge = useMemo(() => {
